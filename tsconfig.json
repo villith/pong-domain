@@ -8,6 +8,7 @@
     "declaration": true,
     "module": "commonjs",
     "target": "esnext",
+    "experimentalDecorators": true
   },
   "include": ["src"]
 }

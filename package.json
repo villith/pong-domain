@@ -1,16 +1,10 @@
 {
   "name": "@team-scott/pong-domain",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "copy-configs": "yes | cp -rf ./src/{tsconfig.json,.eslintrc} ./lib",
-    "clean": "yarn clean-types",
-    "clean-types": "find ./lib/types -name '*.js' -delete",
-    "clean-models": "find ./lib/models -name '*.d.ts' -delete",
-    "build": "tsc && yarn copy-configs",
-    "prepublish": "tsc && git commit -m \"Commit generated files\" --allow-empty ./dist",
+    "prepublish": "tsc",
     "deploy": "np"
   },
   "author": "Scott Donnelly",
@@ -49,6 +43,6 @@
   },
   "types": "lib/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ]
 }
