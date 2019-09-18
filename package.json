@@ -1,0 +1,42 @@
+{
+  "name": "@team-scott/pong-domain",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy-configs": "yes | cp -rf ./src/{tsconfig.json,.eslintrc} ./lib",
+    "clean": "yarn clean-types",
+    "clean-types": "find ./lib/types -name '*.js' -delete",
+    "clean-models": "find ./lib/models -name '*.d.ts' -delete",
+    "build": "tsc && yarn copy-configs"
+  },
+  "author": "Scott Donnelly",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/villith/pong-domain"
+  },
+  "bugs": {
+    "url": "https://github.com/villith/pong-domain/issues"
+  },
+  "homepage": "https://github.com/villith/pong-domain#readme",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.5.6",
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "@typescript-eslint/parser": "^1.11.0",
+    "babel-eslint": "^10.0.2",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-flowtype": "^3.11.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.2",
+    "typescript": "^3.5.2"
+  },
+  "types": "lib/index.d.ts"
+}
