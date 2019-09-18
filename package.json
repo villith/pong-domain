@@ -10,7 +10,7 @@
     "clean-types": "find ./lib/types -name '*.js' -delete",
     "clean-models": "find ./lib/models -name '*.d.ts' -delete",
     "build": "tsc && yarn copy-configs",
-    "publish": "tsc && git diff-index --quiet HEAD ./dist || git commit -m \"Commit generated files\" ./dist && np"
+    "publish": "tsc && git commit -m \"Commit generated files\" --allow-empty ./dist && np"
   },
   "author": "Scott Donnelly",
   "repository": {
