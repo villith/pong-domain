@@ -10,7 +10,7 @@
     "clean-types": "find ./lib/types -name '*.js' -delete",
     "clean-models": "find ./lib/models -name '*.d.ts' -delete",
     "build": "tsc && yarn copy-configs",
-    "publish": "np"
+    "publish": "tsc && git commit -m \"Commit generated files\" ./dist && np"
   },
   "author": "Scott Donnelly",
   "repository": {
@@ -23,11 +23,13 @@
   "homepage": "https://github.com/villith/pong-domain#readme",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^5.0.3"
+    "mongoose": "^5.7.1",
+    "typegoose": "^5.9.1"
   },
   "np": {
     "tests": false,
-    "yarn": false
+    "yarn": false,
+    "contents": "dist"
   },
   "devDependencies": {
     "@types/mongoose": "^5.5.6",
