@@ -1,8 +1,8 @@
 {
   "name": "@team-scott/pong-domain",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "",
-  "main": "index.ts",
+  "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "copy-configs": "yes | cp -rf ./src/{tsconfig.json,.eslintrc} ./lib",
@@ -47,5 +47,8 @@
     "typescript": "^3.5.2",
     "np": "*"
   },
-  "types": "lib/index.d.ts"
+  "types": "lib/index.d.ts",
+  "files": [
+    "dist"
+  ]
 }
