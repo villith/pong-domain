@@ -13,4 +13,4 @@ class Player extends Typegoose {
 
 const PlayerModel = new Player().getModelForClass(Player);
 
-export default PlayerModel;
+export { Player, PlayerModel };

@@ -1,12 +1,17 @@
-import { Schema, model } from 'mongoose';
+import { Ref, Typegoose, prop } from 'typegoose';
 
-const resultSchema = new Schema({
-  _id: Schema.Types.ObjectId,
-  match: { type: Schema.Types.ObjectId, ref: 'Match' },
-  initatorScore: Number,
-  targetScore: Number,
-}, { collection: 'result' });
+import { Match } from './Match';
 
-const Result = model('Result', resultSchema);
+class Result extends Typegoose {
+  @prop({ ref: Match })
+  match: Ref<Match>;
+  initiatorScore: Number;
+  targetScore: Number;
+};
 
-export default Result;
+const ResultModel = new Result().getModelForClass(Result);
+
+export {
+  Result,
+  ResultModel,
+};
