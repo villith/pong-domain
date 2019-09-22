@@ -1,7 +1,7 @@
-import { Typegoose, prop } from 'typegoose';
+import { Typegoose, prop } from '@hasezoey/typegoose';
 
 class Player extends Typegoose {
-  @prop({ unique: true })
+  @prop({ unique: true, required: true })
   name: string;
   
   nickname?: string;
