@@ -1,14 +1,17 @@
 import { Typegoose, prop } from 'typegoose';
 
 class Player extends Typegoose {
-  @prop()
-  name?: string;
+  @prop({ unique: true })
+  name: string;
+  
   nickname?: string;
   emojiFlair?: string;
   tagline?: string;
   victoryLine?: string;
   defeatLine?: string;
-  elo?: number; 
+
+  @prop({ default: 1500 })
+  elo: number; 
 }
 
 const PlayerModel = new Player().getModelForClass(Player);
