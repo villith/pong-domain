@@ -23,6 +23,9 @@ class Player extends Typegoose {
   elo: number; 
 }
 
-const PlayerModel = new Player().getModelForClass(Player);
+const PlayerModel = new Player().getModelForClass(
+  Player,
+  { schemaOptions: { timestamps: true }},
+);
 
 export { Player, PlayerModel };

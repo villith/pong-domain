@@ -14,14 +14,27 @@ const MATCH_STATUS_LABELS: Record<MatchStatus, string> = {
 class Match extends Typegoose {
   @prop({ ref: Player })
   initiator: Ref<Player>;
+
+  @prop()
   target: Ref<Player>;
+
+  @prop()
   status: MatchStatus;
+
+  @prop()
   acceptedAt: Date;
+
+  @prop()
   rejectedAt: Date;
+
+  @prop()
   completedAt: Date;
 }
 
-const MatchModel = new Match().getModelForClass(Match);
+const MatchModel = new Match().getModelForClass(
+  Match,
+  { schemaOptions: { timestamps: true }},
+);
 
 export {
   Match,
