@@ -2,23 +2,24 @@ import { Ref, Typegoose, prop } from '@hasezoey/typegoose';
 
 import { Player } from './Player';
 
-type MatchStatus = 'pending' | 'rejected' | 'in-progress' | 'completed';
+type MatchStatus = 'pending' | 'rejected' | 'in-progress' | 'cancelled' | 'completed';
 
 const MATCH_STATUS_LABELS: Record<MatchStatus, string> = {
   pending: 'Pending',
   rejected: 'Rejected',
   'in-progress': 'In Progress',
   completed: 'Completed',
+  cancelled: 'Cancelled'
 };
 
 class Match extends Typegoose {
   @prop({ ref: Player })
   initiator: Ref<Player>;
 
-  @prop()
+  @prop({ ref: Player })
   target: Ref<Player>;
 
-  @prop()
+  @prop({ default: 'pending' })
   status: MatchStatus;
 
   @prop()
@@ -29,6 +30,9 @@ class Match extends Typegoose {
 
   @prop()
   completedAt: Date;
+
+  @prop()
+  cancelledAt: Date;
 }
 
 const MatchModel = new Match().getModelForClass(

@@ -2,9 +2,12 @@ import { Typegoose, prop } from '@hasezoey/typegoose';
 
 class Player extends Typegoose {
   @prop({ unique: true, required: true })
+  slackId: string;
+
+  @prop({ required: true, lowercase: true })
   name: string;
   
-  @prop()
+  @prop({ lowercase: true })
   nickname?: string;
 
   @prop()
