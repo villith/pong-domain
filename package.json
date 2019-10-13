@@ -18,7 +18,7 @@
   "homepage": "https://github.com/villith/pong-domain#readme",
   "license": "ISC",
   "dependencies": {
-    "@hasezoey/typegoose": "^5.9.2",
+    "@hasezoey/typegoose": "6.0.0-32",
     "@types/mongoose": "^5.5.6",
     "mongoose": "^5.7.1"
   },

@@ -1,4 +1,4 @@
-import { Ref, Typegoose, prop } from '@hasezoey/typegoose';
+import { Ref, Typegoose, getModelForClass, modelOptions, prop } from '@hasezoey/typegoose';
 
 import { Player } from './Player';
 
@@ -12,6 +12,7 @@ const MATCH_STATUS_LABELS: Record<MatchStatus, string> = {
   cancelled: 'Cancelled'
 };
 
+@modelOptions({ schemaOptions: { timestamps: true }})
 class Match extends Typegoose {
   @prop({ ref: Player })
   initiator: Ref<Player>;
@@ -35,10 +36,7 @@ class Match extends Typegoose {
   cancelledAt: Date;
 }
 
-const MatchModel = new Match().getModelForClass(
-  Match,
-  { schemaOptions: { timestamps: true }},
-);
+const MatchModel = getModelForClass(Match);
 
 export {
   Match,

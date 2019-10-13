@@ -1,7 +1,8 @@
-import { Ref, Typegoose, prop } from '@hasezoey/typegoose';
+import { Ref, Typegoose, getModelForClass, modelOptions, prop } from '@hasezoey/typegoose';
 
 import { Match } from './Match';
 
+@modelOptions({ schemaOptions: { timestamps: true }})
 class Result extends Typegoose {
   @prop({ ref: Match })
   match: Ref<Match>;
@@ -13,10 +14,7 @@ class Result extends Typegoose {
   targetScore: Number;
 };
 
-const ResultModel = new Result().getModelForClass(
-  Result,
-  { schemaOptions: { timestamps: true }},
-);
+const ResultModel = getModelForClass(Result);
 
 export {
   Result,
