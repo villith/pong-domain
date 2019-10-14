@@ -2,18 +2,21 @@ import { Ref, Typegoose, getModelForClass, modelOptions, prop } from '@hasezoey/
 
 import { Player } from './Player';
 
-type MatchStatus = 'pending' | 'rejected' | 'in-progress' | 'cancelled' | 'completed';
-
+type MatchStatus = 'pending' | 'rejected' | 'accepted' | 'cancelled' | 'completed';
 const MATCH_STATUS_LABELS: Record<MatchStatus, string> = {
   pending: 'Pending',
   rejected: 'Rejected',
-  'in-progress': 'In Progress',
+  accepted: 'In Progress',
   completed: 'Completed',
   cancelled: 'Cancelled'
 };
 
 @modelOptions({ schemaOptions: { timestamps: true }})
 class Match extends Typegoose {
+  _id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  
   @prop({ ref: Player })
   initiator: Ref<Player>;
 

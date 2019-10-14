@@ -2,6 +2,10 @@ import { Typegoose, getModelForClass, modelOptions, prop } from '@hasezoey/typeg
 
 @modelOptions({ schemaOptions: { timestamps: true }})
 class Player extends Typegoose {
+  _id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  
   @prop({ unique: true, required: true })
   slackId: string;
 

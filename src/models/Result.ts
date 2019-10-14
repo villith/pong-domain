@@ -4,6 +4,10 @@ import { Match } from './Match';
 
 @modelOptions({ schemaOptions: { timestamps: true }})
 class Result extends Typegoose {
+  _id: string;
+  createdAt: Date;
+  updatedAt: Date;
+  
   @prop({ ref: Match })
   match: Ref<Match>;
 
