@@ -8,13 +8,13 @@ class Result extends Typegoose {
   createdAt: Date;
   updatedAt: Date;
   
-  @prop({ ref: Match })
+  @prop({ ref: Match, index: true, unique: true })
   match: Ref<Match>;
 
-  @prop()
+  @prop({ max: 21, min: 0 })
   initiatorScore: Number;
 
-  @prop()
+  @prop({ max: 21, min: 0 })
   targetScore: Number;
 };
 

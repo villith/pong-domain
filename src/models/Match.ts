@@ -11,6 +11,14 @@ const MATCH_STATUS_LABELS: Record<MatchStatus, string> = {
   cancelled: 'Cancelled'
 };
 
+const MatchStatusEnum: MatchStatus[] = [
+  'accepted',
+  'cancelled',
+  'completed',
+  'pending',
+  'rejected',
+];
+
 @modelOptions({ schemaOptions: { timestamps: true }})
 class Match extends Typegoose {
   _id: string;
@@ -23,7 +31,10 @@ class Match extends Typegoose {
   @prop({ ref: Player })
   target: Ref<Player>;
 
-  @prop({ default: 'pending' })
+  @prop({
+    default: 'pending',
+    enum: MatchStatusEnum,
+  })
   status: MatchStatus;
 
   @prop()

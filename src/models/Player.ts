@@ -31,7 +31,7 @@ class Player extends Typegoose {
   elo: number; 
 
   public get playerName() {
-    return 'abcd';
+    return `${this.nickname || this.playerName}`;
   }
 }
 
