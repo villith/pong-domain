@@ -48,6 +48,12 @@ class Match extends Typegoose {
 
   @prop()
   cancelledAt: Date;
+
+  @prop({ max: 21, min: 0 })
+  initiatorScore: Number;
+
+  @prop({ max: 21, min: 0 })
+  targetScore: Number;
 }
 
 const MatchModel = getModelForClass(Match);

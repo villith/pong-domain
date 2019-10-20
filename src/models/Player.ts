@@ -28,7 +28,7 @@ class Player extends Typegoose {
   defeatLine?: string;
 
   @prop({ default: 1500 })
-  elo: number; 
+  elo: number;
 
   public get playerName() {
     return `${this.nickname || this.playerName}`;
