@@ -1,5 +1,7 @@
 import { Player } from "../models";
 
+export type Intervals = 'daily' | 'weekly' | 'monthly' | 'yearly';
+
 type ActionResult = 'success' | 'error';
 
 export interface IActionResponse<DataType = undefined> {
@@ -10,11 +12,19 @@ export interface IActionResponse<DataType = undefined> {
 }
 
 export interface IEloChange {
-  initiator: Player & IEloChangeBody;
-  target: Player & IEloChangeBody;
+  winner: Player & IEloChangeBody;
+  loser: Player & IEloChangeBody;
 }
 
 export interface IEloChangeBody {
   originalElo: number;
   difference: number;
 }
+
+export type Standings = Record<string, {
+  wins: number;
+  losses: number;
+  eloChange: number;
+  currentElo: number;
+  playerName: string;
+}>;

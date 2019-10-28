@@ -25,12 +25,28 @@ class Match extends Typegoose {
   createdAt: Date;
   updatedAt: Date;
   
-  @prop({ ref: Player })
+  @prop({
+    ref: Player,
+    required: true,
+  })
   initiator: Ref<Player>;
 
-  @prop({ ref: Player })
+  @prop({
+    ref: Player,
+    required: true,
+  })
   target: Ref<Player>;
 
+  @prop({
+    ref: Player,
+  })
+  winner: Ref<Player>;
+
+  @prop({
+    ref: Player,
+  })
+  loser: Ref<Player>;
+  
   @prop({
     default: 'pending',
     enum: MatchStatusEnum,
@@ -48,12 +64,6 @@ class Match extends Typegoose {
 
   @prop()
   cancelledAt: Date;
-
-  @prop({ max: 21, min: 0 })
-  initiatorScore: Number;
-
-  @prop({ max: 21, min: 0 })
-  targetScore: Number;
 }
 
 const MatchModel = getModelForClass(Match);
