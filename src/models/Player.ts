@@ -30,6 +30,12 @@ class Player extends Typegoose {
   @prop({ default: 1500 })
   elo: number;
 
+  @prop({ default: 0 })
+  wins: number;
+
+  @prop({ default: 0 })
+  losses: number;
+
   public get playerName() {
     return `${this.nickname || this.playerName}`;
   }
